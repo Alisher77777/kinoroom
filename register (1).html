@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | KinoRoom</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="form-wrapper">
+        <h2>Sign Up</h2>
+        <form method="POST" action="{{ url_for('register') }}">
+            <div class="form-control">
+                <input type="text" name="username" required>
+                <label>Username</label>
+            </div>
+            <div class="form-control">
+                <input type="password" name="password" required>
+                <label>Password</label>
+            </div>
+            <div class="form-control">
+                <input type="password" name="confirm_password" required>
+                <label>Confirm Password</label>
+            </div>
+            <button type="submit">Sign Up</button>
+            {% if error %}
+            <p class="error">{{ error }}</p>
+            {% endif %}
+            <p class="redirect">Already have an account? <a href="{{ url_for('login') }}">Sign in now</a></p>
+        </form>
+    </div>
+</body>
+</html>
